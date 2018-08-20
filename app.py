@@ -22,11 +22,12 @@ def index():
 
 @app.route('/files/<filename>')
 def file(filename):
-    if filename in ['helloshiyanlou','helloworld']:
+    if filename in title_list:
         file_item = result[filename]
         return render_template('file.html', file_item=file_item)
     else:
         return render_template('404.html')
+
 @app.errorhandler(404)
 def not_found(error):
     return render_template('404.html'),404
